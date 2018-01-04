@@ -74,6 +74,7 @@ module.exports = function NodetrustServer (config) {
       addr.forEach(a => peer.multiaddrs.add(a))
       const conn = new Connection()
       conn.getPeerInfo = cb => cb(null, peer)
+      conn.getObservedAddrs = data._client.getObservedAddrs
       return cb(null, peer, conn)
     })
   }
