@@ -6,9 +6,9 @@
     "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDXW+yHJxrvsOVh6EqNowW0CNMZLvDX8Ai+Sy3zDf8LmgOtZaGvQW/5A07peETcYf/pBCw8p2eqZwzouVxXbPteYnGbLX5AV8edzb98PDIRFAb7tInRbzWcaIC6Bwh5hjiUC4smf2ZEuZl0St9zDGYFGYEPam6HSvIph1RfDPbMXU6X+AIqMXKiArc5K43BpEblNht432xR9ywDQUkJuoXM1NkERCjsE0VkO29MZ2IFM9yUp02JqGKNeubgwOsbfmbXsg715aiWoTiT6lTBJ5bgtydE56YO5jaKVuHsQw9u/QoqdygK6N9mK9vK/KANuveLOpQI9tXchHYwV1aY7VdFAgMBAAE="
   },
   "ca": {
-    "provider": "forge",
-    "key": "cakey.pem",
-    "ca": "cacert.pem"
+    "provider": "wilddrop",
+    "key": "wildkey.pem",
+    "cert": "wildcert.pem"
   },
   "dns": {
     "provider": "bind9",
