@@ -51,7 +51,7 @@
     "url": "git+https://github.com/ZeroNetJS/zeronet-nodetrust.git"
   },
   "bugs": {
-    "url": "https://github.com/mkg20001/libp2p-nodetrust/issues"
+    "url": "https://github.com/ZeroNetJS/zeronet-nodetrust/issues"
   },
-  "homepage": "https://github.com/mkg20001/libp2p-nodetrust#readme"
+  "homepage": "https://github.com/ZeroNetJS/zeronet-nodetrust#readme"
 }
