@@ -1,7 +1,7 @@
 {
-  "name": "libp2p-nodetrust",
+  "name": "zeronet-nodetrust",
   "version": "0.0.1",
-  "description": "ID.node.libp2p.io addresses and certificates for libp2p nodes",
+  "description": "ID.node.libp2p.io addresses and certificates for zeronet nodes",
   "main": "src/index.js",
   "scripts": {
     "lint": "aegir lint",
@@ -29,13 +29,7 @@
   "devDependencies": {
     "aegir": "^12.3.0",
     "chai": "^4.1.2",
-    "dirty-chai": "^2.0.1",
-    "libp2p": "^0.14.3",
-    "libp2p-multiplex": "^0.5.1",
-    "libp2p-secio": "^0.8.1",
-    "libp2p-spdy": "^0.11.0",
-    "libp2p-tcp": "^0.11.1",
-    "libp2p-websockets": "^0.10.4"
+    "dirty-chai": "^2.0.1"
   },
   "dependencies": {
     "base32-encode": "^1.0.0",
@@ -46,14 +40,15 @@
     "peer-id": "^0.10.3",
     "peer-info": "^0.11.4",
     "protons": "^1.0.1",
-    "pull-stream": "^3.6.1"
+    "pull-stream": "^3.6.1",
+    "zeronet-swarm": "^0.1.4"
   },
   "directories": {
     "test": "tests"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mkg20001/libp2p-nodetrust.git"
+    "url": "git+https://github.com/ZeroNetJS/zeronet-nodetrust.git"
   },
   "bugs": {
     "url": "https://github.com/mkg20001/libp2p-nodetrust/issues"

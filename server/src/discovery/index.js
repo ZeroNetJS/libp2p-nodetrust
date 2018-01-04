@@ -13,28 +13,20 @@ module.exports = (swarm) => {
     discoveryDB.emit('evict', {key})
   })
 
-  swarm.handle('/nodetrust/announce/1.0.0', (protocol, conn) => {
-    protos.server(conn, protos.announce, (data, respond) => {
-      const cb = err => {
-        if (err) log(err)
-        respond({
-          success: false
-        })
-      }
+  swarm.handle('announce', (conn, _, cb) => {
+    setImmediate(() => {
       conn.getPeerInfo((err, pi) => {
         if (err) return cb(err)
         const id = pi.id.toB58String()
         if (!db.get(id)) return cb(new Error(id + ' has not requested a certificate! Rejecting announce...'))
         log('announce from %s', id)
-        discoveryDB.set(id, data.multiaddr)
-        return respond({
-          success: true
-        })
+        discoveryDB.set(id, pi.multiaddrs.toArray().map(addr => addr.buffer))
+        return cb()
       })
     })
   })
 
-  swarm.handle('/nodetrust/discovery/1.0.0', (protocol, conn) => {
+  swarm.libp2p.libp2p.handle('/nodetrust/discovery/1.0.0', (protocol, conn) => {
     protos.server(conn, protos.discovery, (data, respond) => {
       const cb = err => {
         if (err) log(err)

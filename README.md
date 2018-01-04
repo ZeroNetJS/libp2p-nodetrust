@@ -1,15 +1,12 @@
 # libp2p-nodetrust
 
-Why not give every libp2p node an `ID.node.libp2p.io` address and certificate?
+Why not give every zeronet node an `ID.node.zeronet.io` address and certificate?
 
 # Why
 
-Currently the browser communicates over ONE signalling server and a few bootstrapper nodes (which then get used as releays for all the other TCP nodes).
+ZeroNetJS browser support requires ZeroNet node to be dialable from the browser. Which unfortunatly does not work.
 
-When a large number of browser nodes using the default configuration joins the network those nodes and the server get overloaded pretty quickly.
-Additionally they can be all blocked by some malicious government (china, russia, ...).
-
-The only solution would be to make the browser connect to some other websocket-capable nodes.
+The only solution would be to make the browser connect to some websocket-capable nodes.
 
 Problem: HTTP on HTTPS is disabled due to security.
 

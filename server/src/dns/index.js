@@ -47,29 +47,16 @@ module.exports = (swarm, config) => {
     log('dns is ready')
   })
 
-  const handleDNS = (protocol, conn) => {
-    if (!ready) return setTimeout(handleDNS, 500, protocol, conn)
-    protos.server(conn, protos.dns, (data, respond) => {
-      const cb = err => {
-        if (err) {
-          log(err)
-          respond({
-            success: false
-          })
-        }
-      }
+  const handleDNS = (conn, _, cb) => {
+    if (!ready) return setTimeout(handleDNS, 500, conn, _, cb)
+    setImmediate(() => {
       waterfall([
         cb => conn.getPeerInfo(cb),
         (pi, cb) => {
           const id = pi.id
           log('update dns for %s', id.toB58String())
           if (!db.get(id.toB58String())) return cb(new Error(id.toB58String() + ' has not requested a certificate! Rejecting discovery...'))
-          const time = new Date().getTime()
-          if (data.time > time + 10000 || data.time < time - 10000) return cb(new Error('Timestamp too old/new'))
-          id.pubKey.verify(data.time.toString(), data.signature, (err, ok) => {
-            if (err || !ok) return cb(err || true)
-            return cb(null, id)
-          })
+          return cb(null, id)
         },
         (id, cb) => {
           swarm.getCN(id, (err, name) => {
@@ -96,14 +83,12 @@ module.exports = (swarm, config) => {
             if (err) return cb(err)
             dnsprov.addNames(ips, err => {
               if (err) return cb(err)
-              return respond({
-                success: true
-              })
+              return cb(null, dns)
             })
           })
         }
       ], cb)
     })
   }
-  swarm.handle('/nodetrust/dns/1.0.0', handleDNS)
+  swarm.handle('dns', handleDNS)
 }

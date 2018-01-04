@@ -93,7 +93,7 @@ module.exports = (swarm, config) => {
       throw new Error('Invalid CA-TYPE: ' + catype)
   }
 
-  swarm.handle('/nodetrust/ca/1.0.0', (protocol, conn) => {
-    protos.server(conn, protos.ca, (data, respond) => typeHandler(protocol, conn, data, respond))
+  swarm.handle('ca', (conn, data, cb) => {
+    typeHandler(null, conn, data, cb)
   })
 }
