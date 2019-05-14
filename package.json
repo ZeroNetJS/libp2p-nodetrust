@@ -41,7 +41,7 @@
     "peer-info": "^0.11.4",
     "protons": "^1.0.1",
     "pull-stream": "^3.6.1",
-    "zeronet-swarm": "^0.1.4"
+    "zeronet-swarm": "^0.2.0"
   },
   "directories": {
     "test": "tests"
