@@ -13,7 +13,9 @@
     "release-minor": "aegir release --type minor",
     "release-major": "aegir release --type major",
     "coverage": "aegir coverage",
-    "coverage-publish": "aegir coverage -u"
+    "coverage-publish": "aegir coverage -u",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "libp2p",
@@ -41,7 +43,8 @@
     "peer-info": "^0.11.4",
     "protons": "^1.0.1",
     "pull-stream": "^3.6.1",
-    "zeronet-swarm": "^0.1.4"
+    "zeronet-swarm": "^0.1.4",
+    "snyk": "^1.189.0"
   },
   "directories": {
     "test": "tests"
@@ -53,5 +56,6 @@
   "bugs": {
     "url": "https://github.com/ZeroNetJS/zeronet-nodetrust/issues"
   },
-  "homepage": "https://github.com/ZeroNetJS/zeronet-nodetrust#readme"
+  "homepage": "https://github.com/ZeroNetJS/zeronet-nodetrust#readme",
+  "snyk": true
 }
