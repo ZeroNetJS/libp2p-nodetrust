@@ -28,7 +28,7 @@
     "libp2p-websockets": "^0.10.4",
     "lru": "^3.1.0",
     "multihashing-async": "^0.4.7",
-    "node-forge": "^0.7.1",
+    "node-forge": "^0.10.0",
     "protons": "^1.0.1",
     "request": "^2.83.0",
     "zeronet-crypto": "^0.1.0"
